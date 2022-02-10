@@ -1,7 +1,7 @@
 # App Map RealTime (BACKEND)
 REACT NODEEXPRES SOCKERTO HEROKU 
 
-## Repository FRONTEND REACT
+## Repository Frontend React
 https://github.com/IvanFernandezGracia/maps-realtime-socker.io-React-FRONTEND
 
 ## WebPage (4 windows open)
