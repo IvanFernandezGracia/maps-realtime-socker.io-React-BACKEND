@@ -24,10 +24,6 @@ class Server {
         } else {
           callback(new Error("Not allowed by CORS"));
         }
-        console.log([
-          process.env.DOMAIN_FRONT_REACT_PROD,
-          process.env.DOMAIN_FRONT_REACT_DEV,
-        ]);
       },
     };
 
@@ -39,7 +35,10 @@ class Server {
       ],
     });
 
-    console.log("init: " + process.env.DOMAIN_FRONT_REACT);
+    console.log("init", [
+      process.env.DOMAIN_FRONT_REACT_PROD,
+      process.env.DOMAIN_FRONT_REACT_DEV,
+    ]);
   }
 
   middlewares() {
