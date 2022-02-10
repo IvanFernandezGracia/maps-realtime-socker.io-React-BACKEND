@@ -14,6 +14,14 @@ class Server {
     this.server = http.createServer(this.app);
     this.corsOptions = {
       origin: function (origin, callback) {
+        console.log(
+          [
+            process.env.DOMAIN_FRONT_REACT_PROD,
+            process.env.DOMAIN_FRONT_REACT_DEV,
+            "http://172.20.64.1:8080",
+          ],
+          origin
+        );
         if (
           [
             process.env.DOMAIN_FRONT_REACT_PROD,
