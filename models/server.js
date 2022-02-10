@@ -37,7 +37,11 @@ class Server {
       ],
       handlePreflightRequest: (req, res) => {
         res.writeHead(200, {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": [
+            process.env.DOMAIN_FRONT_REACT_PROD,
+            process.env.DOMAIN_FRONT_REACT_DEV,
+            "http://172.20.64.1:8080",
+          ],
           "Access-Control-Allow-Methods": "GET,POST",
           "Access-Control-Allow-Headers": "my-custom-header",
           "Access-Control-Allow-Credentials": true,
