@@ -34,13 +34,13 @@ class Server {
       origins: this.pathCors,
       handlePreflightRequest: (req, res) => {
         res.writeHead(200, {
-          "Access-Control-Allow-Origin": this.pathCors.toString(),
+          "Access-Control-Allow-Origin": this.pathCors,
           "Access-Control-Allow-Methods": "GET,POST",
           "Access-Control-Allow-Headers": "my-custom-header",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": true,
         });
         res.end();
-      }
+      },
     });
   }
 
