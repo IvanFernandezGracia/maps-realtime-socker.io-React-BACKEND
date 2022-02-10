@@ -34,6 +34,7 @@ class Server {
     this.io = socketio(this.server, {
       origins: (origin, callback) => {
         console.log(origin);
+        console.log(this.pathCors.indexOf(origin) );
         if (this.pathCors.indexOf(origin) !== -1) {
           return callback("origin not allowed", false);
         }
