@@ -32,9 +32,8 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      //
+      origins: this.pathCors[2],
     });
-    this.io.origins([process.env.DOMAIN_FRONT_REACT_PROD]);
   }
 
   middlewares() {
