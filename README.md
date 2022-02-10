@@ -1,8 +1,6 @@
 # App Map RealTime (BACKEND)
 Map app that allows to create and move markers simultaneously in real time. For the frontend we use the React framework, for the backend we use Node and the Express framework and for the server deployment we use heroku. Socket.io is the tool that allows real-time interaction. In addition, Socket.io CORS is introduced as a security measure.
 
-DESCRIPOSCIO NGENERAL 
-
 ## Repository Frontend React
 https://github.com/IvanFernandezGracia/maps-realtime-socker.io-React-FRONTEND
 
@@ -24,47 +22,35 @@ https://docs.mapbox.com/api/search/geocoding/
 <table>
   <tbody>
     <tr>
-      <th align="center">Skills</th>
       <th align="center">Skills</th>  
       <th align="center">Skills</th>
       <th align="center">Skills</th>
     </tr>
         <td>
         <ul>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
+          <li>socket.io</li>
+          <li>CORS Multiple socket.io</li>
+          <li>Config socket</li>
+          <li>socketEvents on</li>
+          <li>socketEvents broadcast.emit</li>
         </ul>
       </td>    
         <td>
         <ul>
           <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
+          <li>dotenv</li>
+          <li>cors Multiple</li>
+          <li>express.json()</li>
+          <li>express.static(path)</li>
         </ul>
       </td>
         <td>
         <ul>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
+          <li>middlewares</li>
+          <li>Model Class Logic</li>
+          <li>Objet Array</li>
         </ul>
         </td>    
-        <td>
-         <ul>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-          <li>Express</li>
-        </ul>
-      </td>
   </tbody>
 </table>
 
