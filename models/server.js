@@ -12,6 +12,8 @@ class Server {
     this.port = process.env.PORT;
     // Http server
     this.server = http.createServer(this.app);
+
+    // CORS Constructor
     this.pathCors = [
       process.env.DOMAIN_FRONT_REACT_PROD,
       process.env.DOMAIN_FRONT_REACT_DEV,
