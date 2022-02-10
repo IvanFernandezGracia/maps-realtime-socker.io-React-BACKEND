@@ -18,6 +18,7 @@ class Server {
           [
             process.env.DOMAIN_FRONT_REACT_PROD,
             process.env.DOMAIN_FRONT_REACT_DEV,
+            "http://172.20.64.1:8080",
           ].indexOf(origin) !== -1
         ) {
           callback(null, true);
@@ -32,12 +33,14 @@ class Server {
       origins: [
         process.env.DOMAIN_FRONT_REACT_PROD,
         process.env.DOMAIN_FRONT_REACT_DEV,
+        "http://172.20.64.1:8080",
       ],
     });
 
     console.log("init", [
       process.env.DOMAIN_FRONT_REACT_PROD,
       process.env.DOMAIN_FRONT_REACT_DEV,
+      "http://172.20.64.1:8080/",
     ]);
   }
 
