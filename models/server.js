@@ -32,7 +32,13 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      origins: this.pathCors,
+      origins: (origin, callback) => {
+        console.log(origin);
+        if (this.pathCors.indexOf(origin) !== -1) {
+          return callback("origin not allowed", false);
+        }
+        callback(null, true);
+      },
     });
   }
 
