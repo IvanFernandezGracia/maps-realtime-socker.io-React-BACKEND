@@ -37,8 +37,9 @@ class Server {
         console.log(this.pathCors.indexOf(origin));
         if (this.pathCors.indexOf(origin) !== -1) {
           return callback(null, true);
+        } else {
+          callback("origin not allowed", false);
         }
-        callback("origin not allowed", false);
       },
     });
   }
