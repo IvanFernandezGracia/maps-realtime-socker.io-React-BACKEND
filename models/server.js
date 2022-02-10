@@ -14,11 +14,11 @@ class Server {
     this.server = http.createServer(this.app);
 
     // CORS Constructor
-    // this.pathCors = [
-    //   process.env.DOMAIN_FRONT_REACT_PROD,
-    //   process.env.DOMAIN_FRONT_REACT_DEV,
-    //   "http://172.20.64.1:8080",
-    // ];
+    this.pathCors = [
+      process.env.DOMAIN_FRONT_REACT_PROD,
+      process.env.DOMAIN_FRONT_REACT_DEV,
+      "http://172.20.64.1:8080",
+    ];
     // console.log(this.pathCors);
     // this.corsOptions = {
     //   origin: function (origin, callback) {
@@ -32,7 +32,7 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      origins: this.pathCors,
+      origins: this.pathCors[1],
     });
   }
 
