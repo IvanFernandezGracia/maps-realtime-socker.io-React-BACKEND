@@ -21,6 +21,8 @@ class Server {
     this.io = socketio(this.server, {
       origins: process.env.DOMAIN_FRONT_REACT,
     });
+
+    console.log("init: " + process.env.DOMAIN_FRONT_REACT);
   }
 
   middlewares() {
