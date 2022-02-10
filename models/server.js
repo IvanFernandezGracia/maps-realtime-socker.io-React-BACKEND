@@ -19,33 +19,22 @@ class Server {
       process.env.DOMAIN_FRONT_REACT_DEV,
       "http://172.20.64.1:8080",
     ];
+    // this.corsOptions = {
+    //   origin: function (origin, callback) {
+    //     if (this.pathCors.indexOf(origin) !== -1) {
+    //       callback(null, true);
+    //     } else {
+    //       callback(new Error("Not allowed by CORS"));
+    //     }
+    //   },
+    // };
     this.corsOptions = {
-      origin: function (origin, callback) {
-        if (this.pathCors.indexOf(origin) !== -1) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
+      origin: this.pathCors[0],
+      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
-
     // Configuraciones de sockets
     this.io = socketio(this.server, {
       origins: this.pathCors,
-      handlePreflightRequest: (req, res) => {
-        console.log({
-          host: req.headers.host,
-          origin: req.headers.origin,
-          referer: req.headers.referer,
-        });
-        res.writeHead(200, {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,POST",
-          "Access-Control-Allow-Headers": "my-custom-header",
-          "Access-Control-Allow-Credentials": true,
-        });
-        res.end();
-      },
     });
   }
 
