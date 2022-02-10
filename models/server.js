@@ -33,7 +33,10 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      origins: process.env.DOMAIN_FRONT_REACT,
+      origins: [
+        process.env.DOMAIN_FRONT_REACT_PROD,
+        process.env.DOMAIN_FRONT_REACT_DEV,
+      ],
     });
 
     console.log("init: " + process.env.DOMAIN_FRONT_REACT);
