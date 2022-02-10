@@ -13,8 +13,22 @@ class Server {
     // Http server
     this.server = http.createServer(this.app);
     this.corsOptions = {
-      origin: process.env.DOMAIN_FRONT_REACT,
-      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+      origin: function (origin, callback) {
+        if (
+          [
+            process.env.DOMAIN_FRONT_REACT_PROD,
+            process.env.DOMAIN_FRONT_REACT_DEV,
+          ].indexOf(origin) !== -1
+        ) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+        console.log([
+          process.env.DOMAIN_FRONT_REACT_PROD,
+          process.env.DOMAIN_FRONT_REACT_DEV,
+        ]);
+      },
     };
 
     // Configuraciones de sockets
