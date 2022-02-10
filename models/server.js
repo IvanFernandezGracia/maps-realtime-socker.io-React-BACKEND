@@ -33,7 +33,11 @@ class Server {
     this.io = socketio(this.server, {
       origins: this.pathCors,
       handlePreflightRequest: (req, res) => {
-        console.log(req.headers);
+        console.log({
+          host: req.headers.host,
+          origin: req.headers.origin,
+          referer: req.headers.referer,
+        });
         res.writeHead(200, {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,POST",
