@@ -33,6 +33,15 @@ class Server {
     // Configuraciones de sockets
     this.io = socketio(this.server, {
       origins: this.pathCors,
+      handlePreflightRequest: (req, res) => {
+        res.writeHead(200, {
+          "Access-Control-Allow-Origin": this.pathCors[0],
+          "Access-Control-Allow-Methods": "GET,POST",
+          "Access-Control-Allow-Headers": "my-custom-header",
+          "Access-Control-Allow-Credentials": true,
+        });
+        res.end();
+      },
     });
   }
 
