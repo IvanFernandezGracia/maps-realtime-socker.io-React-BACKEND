@@ -12,23 +12,14 @@ class Server {
     this.port = process.env.PORT;
     // Http server
     this.server = http.createServer(this.app);
+    this.pathCors = [
+      process.env.DOMAIN_FRONT_REACT_PROD,
+      process.env.DOMAIN_FRONT_REACT_DEV,
+      "http://172.20.64.1:8080",
+    ];
     this.corsOptions = {
       origin: function (origin, callback) {
-        console.log(
-          [
-            process.env.DOMAIN_FRONT_REACT_PROD,
-            process.env.DOMAIN_FRONT_REACT_DEV,
-            "http://172.20.64.1:8080",
-          ],
-          origin
-        );
-        if (
-          [
-            process.env.DOMAIN_FRONT_REACT_PROD,
-            process.env.DOMAIN_FRONT_REACT_DEV,
-            "http://172.20.64.1:8080",
-          ].indexOf(origin) !== -1
-        ) {
+        if (this.pathCors.indexOf(origin) !== -1) {
           callback(null, true);
         } else {
           callback(new Error("Not allowed by CORS"));
@@ -38,31 +29,8 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      origins: [
-        process.env.DOMAIN_FRONT_REACT_PROD,
-        process.env.DOMAIN_FRONT_REACT_DEV,
-        "http://172.20.64.1:8080",
-      ],
-      handlePreflightRequest: (req, res) => {
-        res.writeHead(200, {
-          "Access-Control-Allow-Origin": [
-            process.env.DOMAIN_FRONT_REACT_PROD,
-            process.env.DOMAIN_FRONT_REACT_DEV,
-            "http://172.20.64.1:8080",
-          ],
-          "Access-Control-Allow-Methods": "GET,POST",
-          "Access-Control-Allow-Headers": "my-custom-header",
-          "Access-Control-Allow-Credentials": true,
-        });
-        res.end();
-      },
+      origins: this.pathCors,
     });
-
-    console.log("init", [
-      process.env.DOMAIN_FRONT_REACT_PROD,
-      process.env.DOMAIN_FRONT_REACT_DEV,
-      "http://172.20.64.1:8080/",
-    ]);
   }
 
   middlewares() {
