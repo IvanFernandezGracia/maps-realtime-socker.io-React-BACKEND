@@ -19,19 +19,17 @@ class Server {
       process.env.DOMAIN_FRONT_REACT_DEV,
       "http://172.20.64.1:8080",
     ];
-    // this.corsOptions = {
-    //   origin: function (origin, callback) {
-    //     if (this.pathCors.indexOf(origin) !== -1) {
-    //       callback(null, true);
-    //     } else {
-    //       callback(new Error("Not allowed by CORS"));
-    //     }
-    //   },
-    // };
     this.corsOptions = {
-      origin: this.pathCors[0],
-      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+      origin: function (origin, callback) {
+        console.log(origin,"cors()")
+        if (this.pathCors.indexOf(origin) !== -1) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
     };
+
     // Configuraciones de sockets
     this.io = socketio(this.server, {
       origins: this.pathCors,
