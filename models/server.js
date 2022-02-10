@@ -35,6 +35,15 @@ class Server {
         process.env.DOMAIN_FRONT_REACT_DEV,
         "http://172.20.64.1:8080",
       ],
+      handlePreflightRequest: (req, res) => {
+        res.writeHead(200, {
+          "Access-Control-Allow-Origin": "http://localhost:3000",
+          "Access-Control-Allow-Methods": "GET,POST",
+          "Access-Control-Allow-Headers": "my-custom-header",
+          "Access-Control-Allow-Credentials": true,
+        });
+        res.end();
+      },
     });
 
     console.log("init", [
