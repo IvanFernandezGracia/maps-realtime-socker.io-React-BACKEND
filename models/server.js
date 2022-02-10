@@ -19,6 +19,7 @@ class Server {
       process.env.DOMAIN_FRONT_REACT_DEV,
       "http://172.20.64.1:8080",
     ];
+    console.log(this.pathCors)
     this.corsOptions = {
       origin: function (origin, callback) {
         console.log(origin,"cors()")
