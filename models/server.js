@@ -32,7 +32,7 @@ class Server {
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
-      origins: this.pathCors[1],
+      origins: this.pathCors,
     });
   }
 
