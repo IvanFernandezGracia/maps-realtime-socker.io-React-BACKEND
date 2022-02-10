@@ -14,22 +14,21 @@ class Server {
     this.server = http.createServer(this.app);
 
     // CORS Constructor
-    this.pathCors = [
-      process.env.DOMAIN_FRONT_REACT_PROD,
-      process.env.DOMAIN_FRONT_REACT_DEV,
-      "http://172.20.64.1:8080",
-    ];
-    console.log(this.pathCors)
-    this.corsOptions = {
-      origin: function (origin, callback) {
-        console.log(origin,"cors()")
-        if (this.pathCors.indexOf(origin) !== -1) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
-    };
+    // this.pathCors = [
+    //   process.env.DOMAIN_FRONT_REACT_PROD,
+    //   process.env.DOMAIN_FRONT_REACT_DEV,
+    //   "http://172.20.64.1:8080",
+    // ];
+    // console.log(this.pathCors);
+    // this.corsOptions = {
+    //   origin: function (origin, callback) {
+    //     if (this.pathCors.indexOf(origin) !== -1) {
+    //       callback(null, true);
+    //     } else {
+    //       callback(new Error("Not allowed by CORS"));
+    //     }
+    //   },
+    // };
 
     // Configuraciones de sockets
     this.io = socketio(this.server, {
@@ -39,7 +38,8 @@ class Server {
 
   middlewares() {
     // CORS
-    this.app.use(cors(this.corsOptions));
+    // this.app.use(cors(this.corsOptions));
+    // this.app.use(cors());
 
     // Lectura y parseo del body
     this.app.use(express.json());
