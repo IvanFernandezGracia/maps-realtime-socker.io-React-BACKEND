@@ -1,6 +1,5 @@
 # App Map RealTime (BACKEND)
-REACT NODEEXPRES SOCKERTO HEROKU 
-CORS
+Map app that allows to create and move markers simultaneously in real time. For the frontend we use the React framework, for the backend we use Node and the Express framework and for the server deployment we use heroku. Socket.io is the tool that allows real-time interaction. In addition, Socket.io CORS is introduced as a security measure.
 
 DESCRIPOSCIO NGENERAL 
 
